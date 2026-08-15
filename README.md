@@ -1,42 +1,65 @@
 # 🚀 Cadence — AI-Powered Project Delivery Dashboard
 
-> Turn scattered project updates into structured delivery intelligence.
+> **Turn scattered project updates into structured delivery intelligence.**
 
-Cadence is an AI-powered project delivery workspace that helps delivery teams monitor project health, track milestones, identify risks, and transform unstructured project updates into actionable delivery information.
+Cadence is an AI-powered project delivery workspace designed to help delivery teams monitor project health, track milestones, identify risks, manage issues, and transform unstructured project updates into structured delivery information.
 
 Built for the **FlytBase AI-Native Customer Teams Hackathon**.
 
 ---
 
-## 🎯 The Problem
+## 🌐 Live Demo
 
-Project delivery updates are often scattered across emails, chats, calls, and engineering notes.
+🔗 **Live Application:** https://cadence-project-delivery-dashboard.streamlit.app
 
-This makes it difficult for delivery teams and customers to get a unified view of:
-
-- Project progress
-- Milestones and deliverables
-- Risks and blockers
-- Open issues
-- Recent project activity
-
-Teams also spend significant time manually converting unstructured updates into structured project status.
+🔗 **GitHub Repository:** https://github.com/adityaa-nikam/cadence-project-delivery-dashboard
 
 ---
 
-## 💡 The Solution
+## 📸 Product Preview
 
-Cadence provides a unified project delivery dashboard with an AI-powered update workflow.
+### Portfolio Overview
+
+The portfolio dashboard provides a unified view of active delivery projects, project health, milestone completion, blocked work, and AI-generated activity.
+
+![Cadence Portfolio Dashboard](screenshots/dashboard.png)
+
+---
+
+### Project Delivery View
+
+Each project has a detailed delivery workspace with AI health assessment, milestone progress, risks, issues, and separate internal/customer perspectives.
+
+![Cadence Project Delivery View](screenshots/project-detail.png)
+
+---
+
+# 🎯 The Problem
+
+Once a customer signs on, delivery work begins across onboarding, implementation milestones, ongoing tasks, and issue resolution.
+
+However, project updates are often scattered across:
+
+- Emails
+- Chat messages
+- Calls and meeting notes
+- Engineering updates
+- Support tickets
+- Manual status reports
+
+This creates a major visibility problem.
+
+Delivery teams have to manually interpret updates and maintain project status, while customers often lack a unified place to understand how their project is progressing.
+
+### The traditional workflow
 
 ```text
-Natural-Language Update
-          ↓
-      AI Processing
-          ↓
-  Delivery Information
-          ↓
-Milestone • Progress • Risk • Status
-          ↓
-   Project State Updated
-          ↓
-     Activity Feed
+Customer / Engineering / Support Updates
+                  ↓
+       Emails • Chat • Calls • Notes
+                  ↓
+        Manual Interpretation
+                  ↓
+        Manual Status Updates
+                  ↓
+       Fragmented Project View
