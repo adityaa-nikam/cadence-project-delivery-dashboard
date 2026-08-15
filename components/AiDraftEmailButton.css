@@ -1,0 +1,229 @@
+/* ==========================================
+   AiDraftEmailButton Stylesheet (BEM / Vanilla CSS)
+   Project Delivery Dashboard - B2B SaaS Aesthetic
+   ========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* --- Root & Component Variables --- */
+:root {
+  --ai-btn-indigo-600: #4F46E5;
+  --ai-btn-indigo-500: #6366F1;
+  --ai-btn-indigo-700: #4338CA;
+  --ai-btn-indigo-800: #3730A3;
+  --ai-btn-emerald-500: #10B981;
+  --ai-btn-emerald-600: #059669;
+  --ai-btn-red-500: #EF4444;
+  --ai-btn-red-600: #DC2626;
+  --ai-btn-gray-200: #E5E7EB;
+  --ai-btn-gray-400: #9CA3AF;
+  --ai-btn-gray-700: #374151;
+  --ai-btn-gray-900: #111827;
+  --ai-btn-shadow-default: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --ai-btn-shadow-hover: 0 10px 15px -3px rgba(79, 70, 229, 0.35), 0 4px 6px -2px rgba(79, 70, 229, 0.2);
+  --ai-btn-shadow-active: inset 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+  --ai-btn-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* --- Container for positioning Tooltip --- */
+.ai-draft-btn-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* --- Core Button Base --- */
+.ai-draft-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem; /* 10px spacing between icon & text */
+  padding: 0.75rem 1.375rem; /* 12px 22px */
+  border-radius: 0.5rem; /* 8px modern rounded corners */
+  border: none;
+  font-family: var(--ai-btn-font-family);
+  font-size: 1rem; /* 16px */
+  font-weight: 600;
+  line-height: 1.5;
+  color: #FFFFFF;
+  background: linear-gradient(135deg, var(--ai-btn-indigo-600) 0%, var(--ai-btn-indigo-500) 100%);
+  box-shadow: var(--ai-btn-shadow-default);
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  white-space: nowrap;
+  transition: background 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.15s ease,
+              color 0.2s ease,
+              border-color 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* --- Subtle Shine Effect on Hover --- */
+.ai-draft-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.25) 50%,
+    transparent 100%
+  );
+  transform: skewX(-25deg);
+  transition: left 0.75s ease;
+  pointer-events: none;
+}
+
+/* --- Hover State --- */
+.ai-draft-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #4338CA 0%, #4F46E5 100%);
+  box-shadow: var(--ai-btn-shadow-hover);
+  transform: translateY(-1px);
+}
+
+.ai-draft-btn:hover:not(:disabled)::after {
+  left: 150%;
+}
+
+/* --- Hover Micro-animation for Icon --- */
+.ai-draft-btn:hover:not(:disabled) .ai-draft-btn__icon--primary {
+  transform: translate(2px, -2px) scale(1.05);
+}
+
+/* --- Active / Pressed State --- */
+.ai-draft-btn:active:not(:disabled),
+.ai-draft-btn--active {
+  background: var(--ai-btn-indigo-700) !important;
+  box-shadow: var(--ai-btn-shadow-active) !important;
+  transform: translateY(1px) scale(0.98) !important;
+}
+
+/* --- Focus Visible State (Accessibility) --- */
+.ai-draft-btn:focus-visible {
+  outline: 2px solid var(--ai-btn-indigo-600);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.3);
+}
+
+/* --- Disabled State --- */
+.ai-draft-btn:disabled,
+.ai-draft-btn--disabled {
+  background: var(--ai-btn-gray-200) !important;
+  color: var(--ai-btn-gray-400) !important;
+  box-shadow: none !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+  opacity: 1;
+}
+
+.ai-draft-btn:disabled .ai-draft-btn__icon,
+.ai-draft-btn--disabled .ai-draft-btn__icon {
+  opacity: 0.45;
+  transform: none !important;
+}
+
+/* --- Dynamic State: Loading --- */
+.ai-draft-btn--loading {
+  background: linear-gradient(135deg, #4338CA 0%, #4F46E5 100%);
+  cursor: wait !important;
+  pointer-events: none;
+}
+
+/* --- Dynamic State: Success --- */
+.ai-draft-btn--success {
+  background: linear-gradient(135deg, var(--ai-btn-emerald-600) 0%, var(--ai-btn-emerald-500) 100%) !important;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.35) !important;
+  animation: ai-pulse-success 0.4s ease-in-out;
+}
+
+/* --- Dynamic State: Error --- */
+.ai-draft-btn--error {
+  background: linear-gradient(135deg, var(--ai-btn-red-600) 0%, var(--ai-btn-red-500) 100%) !important;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.35) !important;
+  animation: ai-shake-error 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+/* --- Icon Base & Animations --- */
+.ai-draft-btn__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem; /* 20px */
+  height: 1.25rem;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  flex-shrink: 0;
+}
+
+.ai-draft-btn__spinner {
+  animation: ai-spin 0.85s linear infinite;
+}
+
+/* --- Tooltip Element --- */
+.ai-draft-tooltip {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background-color: var(--ai-btn-gray-900);
+  color: #FFFFFF;
+  font-family: var(--ai-btn-font-family);
+  font-size: 0.8125rem; /* 13px */
+  font-weight: 500;
+  line-height: 1.4;
+  padding: 0.5rem 0.875rem;
+  border-radius: 0.375rem; /* 6px */
+  white-space: normal;
+  max-width: 260px;
+  width: max-content;
+  text-align: center;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  z-index: 50;
+}
+
+/* Tooltip Arrow */
+.ai-draft-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--ai-btn-gray-900) transparent transparent transparent;
+}
+
+/* Show Tooltip on Hover or Focus of Wrapper when Button is Disabled */
+.ai-draft-btn-wrapper:hover .ai-draft-tooltip--visible,
+.ai-draft-btn-wrapper:focus-within .ai-draft-tooltip--visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* --- Keyframe Animations --- */
+@keyframes ai-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes ai-pulse-success {
+  0% { transform: scale(0.96); }
+  50% { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
+
+@keyframes ai-shake-error {
+  10%, 90% { transform: translate3d(-1px, 0, 0); }
+  20%, 80% { transform: translate3d(2px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+  40%, 60% { transform: translate3d(4px, 0, 0); }
+}

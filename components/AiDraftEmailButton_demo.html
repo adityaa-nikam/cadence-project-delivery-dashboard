@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AiDraftEmailButton - B2B SaaS Component Showcase</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./AiDraftEmailButton.css" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0F172A;
+      color: #F8FAFC;
+      min-height: 100vh;
+      padding: 2.5rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .container {
+      max-width: 1040px;
+      width: 100%;
+    }
+    .header {
+      margin-bottom: 2.5rem;
+      text-align: center;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      background: rgba(99, 102, 241, 0.15);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      color: #818CF8;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #FFFFFF 0%, #94A3B8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    p.subtitle {
+      color: #94A3B8;
+      font-size: 1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Dashboard Mockup Card */
+    .dashboard-card {
+      background: #1E293B;
+      border: 1px solid #334155;
+      border-radius: 1rem;
+      padding: 1.75rem 2rem;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+      margin-bottom: 2.5rem;
+    }
+    .dashboard-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #334155;
+    }
+    .project-info h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #F8FAFC;
+    }
+    .project-info p {
+      font-size: 0.875rem;
+      color: #64748B;
+    }
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 0.375rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      background: rgba(16, 185, 129, 0.15);
+      color: #34D399;
+      margin-left: 0.5rem;
+    }
+
+    /* Interactive Control Panel */
+    .controls-card {
+      background: #1E293B;
+      border: 1px solid #334155;
+      border-radius: 1rem;
+      padding: 1.5rem 2rem;
+      margin-bottom: 2.5rem;
+    }
+    .controls-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #CBD5E1;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .control-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .ctrl-btn {
+      background: #334155;
+      color: #E2E8F0;
+      border: 1px solid #475569;
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .ctrl-btn:hover {
+      background: #475569;
+      color: #FFFFFF;
+    }
+    .ctrl-btn.active {
+      background: #4F46E5;
+      border-color: #6366F1;
+      color: #FFFFFF;
+    }
+
+    /* Output Console Log */
+    .console-log {
+      margin-top: 1rem;
+      padding: 0.75rem 1rem;
+      background: #0F172A;
+      border: 1px dashed #334155;
+      border-radius: 0.5rem;
+      font-family: monospace;
+      font-size: 0.8125rem;
+      color: #38BDF8;
+      min-height: 2.5rem;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Code Snippet Tabs */
+    .code-card {
+      background: #1E293B;
+      border: 1px solid #334155;
+      border-radius: 1rem;
+      overflow: hidden;
+    }
+    .code-header {
+      display: flex;
+      background: #0F172A;
+      border-bottom: 1px solid #334155;
+    }
+    .tab-btn {
+      padding: 0.75rem 1.25rem;
+      background: transparent;
+      border: none;
+      color: #94A3B8;
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s ease;
+    }
+    .tab-btn:hover {
+      color: #F8FAFC;
+    }
+    .tab-btn.active {
+      color: #818CF8;
+      border-bottom-color: #6366F1;
+      background: #1E293B;
+    }
+    .tab-content {
+      display: none;
+      padding: 1.5rem;
+      overflow-x: auto;
+      max-height: 400px;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    pre {
+      font-family: 'Fira Code', 'Courier New', monospace;
+      font-size: 0.84rem;
+      color: #E2E8F0;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <div class="badge">
+        <span>✦ B2B SaaS UI Component</span>
+      </div>
+      <h1>AiDraftEmailButton</h1>
+      <p class="subtitle">
+        An advanced, accessible AI action button engineered for Project Delivery Dashboards.
+      </p>
+    </div>
+
+    <!-- Live Interactive Dashboard Card Mockup -->
+    <div class="dashboard-card">
+      <div class="dashboard-header">
+        <div class="project-info">
+          <h2>Acme Corp - Enterprise ERP Rollout <span class="status-pill">● On Track</span></h2>
+          <p>Client ID: #PRJ-8842 • Phase 3 Delivery • Next Milestone: Sept 1, 2026</p>
+        </div>
+
+        <!-- Component Live Host -->
+        <div id="button-host">
+          <div class="ai-draft-btn-wrapper" id="btn-wrapper">
+            <button
+              id="demo-ai-btn"
+              type="button"
+              class="ai-draft-btn"
+              aria-label="Draft Customer Email"
+            >
+              <svg
+                id="btn-icon"
+                class="ai-draft-btn__icon ai-draft-btn__icon--primary"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M22 2L11 13" />
+                <path d="M22 2L15 22L11 13L2 9L22 2Z" />
+              </svg>
+              <span id="btn-text" class="ai-draft-btn__label">Draft Customer Email</span>
+            </button>
+            <div id="btn-tooltip" role="tooltip" class="ai-draft-tooltip">
+              Please ensure all project data is reviewed before drafting.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Panel Context -->
+      <div style="margin-top: 1.25rem; display: flex; justify-content: space-between; color: #94A3B8; font-size: 0.8125rem;">
+        <span>Last AI Email Drafted: <strong>Yesterday, 4:15 PM</strong></span>
+        <span>AI Confidence Rating: <strong style="color:#34D399;">98.4%</strong></span>
+      </div>
+    </div>
+
+    <!-- Interactive Test Control Panel -->
+    <div class="controls-card">
+      <div class="controls-title">
+        <span>⚡ Interactive State Tester</span>
+      </div>
+      <div class="control-buttons">
+        <button class="ctrl-btn" id="ctrl-trigger">▶ Trigger AI Async Flow</button>
+        <button class="ctrl-btn" id="ctrl-loading">State: Loading</button>
+        <button class="ctrl-btn" id="ctrl-success">State: Success</button>
+        <button class="ctrl-btn" id="ctrl-error">State: Error</button>
+        <button class="ctrl-btn" id="ctrl-disabled">Toggle Disabled & Tooltip</button>
+        <button class="ctrl-btn" id="ctrl-regenerate">Toggle "Regenerate" Text</button>
+        <button class="ctrl-btn" id="ctrl-reset">Reset to Default</button>
+      </div>
+
+      <div class="console-log" id="console-log">
+        &gt; Ready. Click "Draft Customer Email" or use state controls above.
+      </div>
+    </div>
+
+    <!-- Source Code Tabs -->
+    <div class="code-card">
+      <div class="code-header">
+        <button class="tab-btn active" onclick="switchTab('react-ts')">React (TS + Custom CSS)</button>
+        <button class="tab-btn" onclick="switchTab('react-tw')">React (Tailwind CSS)</button>
+        <button class="tab-btn" onclick="switchTab('html-css')">HTML + CSS</button>
+      </div>
+
+      <div id="tab-react-ts" class="tab-content active">
+        <pre><code>import React from 'react';
+import { AiDraftEmailButton } from './AiDraftEmailButton';
+
+export const DashboardHeader = () => {
+  const handleDraftEmail = async () => {
+    // 1. Fetch latest project milestone data
+    // 2. Call backend LLM endpoint (e.g., Gemini API)
+    // 3. Open email composer modal with drafted body
+    const response = await fetch('/api/projects/8842/ai-draft-email', { method: 'POST' });
+    if (!response.ok) throw new Error('Failed to generate draft');
+  };
+
+  return (
+    &lt;div className="flex justify-between items-center"&gt;
+      &lt;h2&gt;Acme Corp Project&lt;/h2&gt;
+      &lt;AiDraftEmailButton 
+        onDraft={handleDraftEmail}
+        disabled={false}
+        disabledTooltip="Please ensure project milestone data is reviewed before drafting."
+      /&gt;
+    &lt;/div&gt;
+  );
+};</code></pre>
+      </div>
+
+      <div id="tab-react-tw" class="tab-content">
+        <pre><code>import React from 'react';
+import { AiDraftEmailButtonTailwind } from './AiDraftEmailButtonTailwind';
+
+export const DashboardHeaderTailwind = () => {
+  return (
+    &lt;AiDraftEmailButtonTailwind
+      label="Draft Customer Email"
+      disabledTooltip="Please review project status before drafting."
+      onDraft={async () => {
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+      }}
+    /&gt;
+  );
+};</code></pre>
+      </div>
+
+      <div id="tab-html-css" class="tab-content">
+        <pre><code>&lt;!-- HTML Structure --&gt;
+&lt;div class="ai-draft-btn-wrapper"&gt;
+  &lt;button type="button" class="ai-draft-btn" aria-label="Draft Customer Email"&gt;
+    &lt;svg class="ai-draft-btn__icon ai-draft-btn__icon--primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"&gt;
+      &lt;path d="M22 2L11 13" /&gt;
+      &lt;path d="M22 2L15 22L11 13L2 9L22 2Z" /&gt;
+    &lt;/svg&gt;
+    &lt;span class="ai-draft-btn__label"&gt;Draft Customer Email&lt;/span&gt;
+  &lt;/button&gt;
+  
+  &lt;!-- Disabled Tooltip --&gt;
+  &lt;div role="tooltip" class="ai-draft-tooltip"&gt;
+    Please ensure all project data is reviewed before drafting.
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive JavaScript Controller -->
+  <script>
+    const btn = document.getElementById('demo-ai-btn');
+    const icon = document.getElementById('btn-icon');
+    const text = document.getElementById('btn-text');
+    const tooltip = document.getElementById('btn-tooltip');
+    const consoleLog = document.getElementById('console-log');
+
+    let isRegenerate = false;
+    let isDisabled = false;
+    let currentTimer = null;
+
+    const SVG_PRIMARY = '<path d="M22 2L11 13" /><path d="M22 2L15 22L11 13L2 9L22 2Z" />';
+    const SVG_SPINNER = '<path d="M21 12a9 9 0 1 1-6.219-8.56" />';
+    const SVG_SUCCESS = '<polyline points="20 6 9 17 4 12" />';
+    const SVG_ERROR = '<line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />';
+
+    function log(msg) {
+      consoleLog.innerHTML = `&gt; ${msg}`;
+    }
+
+    function resetClasses() {
+      btn.className = 'ai-draft-btn';
+      if (isDisabled) btn.classList.add('ai-draft-btn--disabled');
+      icon.className = 'ai-draft-btn__icon ai-draft-btn__icon--primary';
+      icon.setAttribute('stroke-width', '2');
+    }
+
+    function setStateLoading() {
+      if (currentTimer) clearTimeout(currentTimer);
+      resetClasses();
+      btn.classList.add('ai-draft-btn--loading');
+      btn.disabled = true;
+      icon.className = 'ai-draft-btn__icon ai-draft-btn__spinner';
+      icon.setAttribute('stroke-width', '2.5');
+      icon.innerHTML = SVG_SPINNER;
+      text.textContent = 'Drafting...';
+      btn.setAttribute('aria-busy', 'true');
+      log('State: Loading... (AI is analyzing project metrics & generating draft email)');
+    }
+
+    function setStateSuccess() {
+      if (currentTimer) clearTimeout(currentTimer);
+      resetClasses();
+      btn.classList.add('ai-draft-btn--success');
+      btn.disabled = true;
+      icon.className = 'ai-draft-btn__icon';
+      icon.setAttribute('stroke-width', '2.5');
+      icon.innerHTML = SVG_SUCCESS;
+      text.textContent = 'Drafted!';
+      btn.setAttribute('aria-busy', 'false');
+      log('State: Success! AI email drafted successfully.');
+
+      currentTimer = setTimeout(() => {
+        isRegenerate = true;
+        setStateDefault();
+        log('Reverted to default state with label: "Regenerate Email".');
+      }, 2500);
+    }
+
+    function setStateError() {
+      if (currentTimer) clearTimeout(currentTimer);
+      resetClasses();
+      btn.classList.add('ai-draft-btn--error');
+      btn.disabled = true;
+      icon.className = 'ai-draft-btn__icon';
+      icon.setAttribute('stroke-width', '2.5');
+      icon.innerHTML = SVG_ERROR;
+      text.textContent = 'Error!';
+      btn.setAttribute('aria-busy', 'false');
+      log('State: Error! Failed to reach AI service.');
+
+      currentTimer = setTimeout(() => {
+        setStateDefault();
+      }, 2500);
+    }
+
+    function setStateDefault() {
+      if (currentTimer) clearTimeout(currentTimer);
+      resetClasses();
+      btn.disabled = isDisabled;
+      icon.innerHTML = SVG_PRIMARY;
+      text.textContent = isRegenerate ? 'Regenerate Email' : 'Draft Customer Email';
+      btn.setAttribute('aria-busy', 'false');
+    }
+
+    async function triggerAiFlow() {
+      if (isDisabled) {
+        log('Action blocked: Button is disabled. Tooltip displayed.');
+        return;
+      }
+      setStateLoading();
+      await new Promise(r => setTimeout(r, 1800));
+      setStateSuccess();
+    }
+
+    // Button click listener
+    btn.addEventListener('click', () => {
+      triggerAiFlow();
+    });
+
+    // Control panel buttons
+    document.getElementById('ctrl-trigger').addEventListener('click', triggerAiFlow);
+    document.getElementById('ctrl-loading').addEventListener('click', setStateLoading);
+    document.getElementById('ctrl-success').addEventListener('click', setStateSuccess);
+    document.getElementById('ctrl-error').addEventListener('click', setStateError);
+
+    document.getElementById('ctrl-disabled').addEventListener('click', (e) => {
+      isDisabled = !isDisabled;
+      e.target.classList.toggle('active', isDisabled);
+      if (isDisabled) {
+        btn.disabled = true;
+        tooltip.classList.add('ai-draft-tooltip--visible');
+        log('State: Disabled. Hover or focus over the button to view the tooltip.');
+      } else {
+        btn.disabled = false;
+        tooltip.classList.remove('ai-draft-tooltip--visible');
+        log('State: Enabled.');
+      }
+      setStateDefault();
+    });
+
+    document.getElementById('ctrl-regenerate').addEventListener('click', (e) => {
+      isRegenerate = !isRegenerate;
+      e.target.classList.toggle('active', isRegenerate);
+      setStateDefault();
+      log(`Label updated to: "${isRegenerate ? 'Regenerate Email' : 'Draft Customer Email'}"`);
+    });
+
+    document.getElementById('ctrl-reset').addEventListener('click', () => {
+      isDisabled = false;
+      isRegenerate = false;
+      document.getElementById('ctrl-disabled').classList.remove('active');
+      document.getElementById('ctrl-regenerate').classList.remove('active');
+      tooltip.classList.remove('ai-draft-tooltip--visible');
+      setStateDefault();
+      log('Reset to initial default state.');
+    });
+
+    // Tab switcher
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+      
+      event.target.classList.add('active');
+      document.getElementById(`tab-${tabId}`).classList.add('active');
+    }
+  </script>
+</body>
+</html>
