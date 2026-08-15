@@ -1,53 +1,42 @@
-# Project Delivery Dashboard 📦
+# 🚀 Cadence — AI-Powered Project Delivery Dashboard
 
-A unified internal + customer-facing delivery dashboard with AI-powered 
-update parsing. Built for the FlytBase "AI-Native Customer Teams" hackathon.
+> Turn scattered project updates into structured delivery intelligence.
 
-## 🚀 Quick Start (Local)
+Cadence is an AI-powered project delivery workspace that helps delivery teams monitor project health, track milestones, identify risks, and transform unstructured project updates into actionable delivery information.
 
-```bash
-git clone <your-repo-url>
-cd project-delivery-dashboard
-pip install -r requirements.txt
+Built for the **FlytBase AI-Native Customer Teams Hackathon**.
 
-# Set your Gemini API key (get free key at aistudio.google.com)
-export GEMINI_API_KEY=your_key_here   # Mac/Linux
-set GEMINI_API_KEY=your_key_here      # Windows
+---
 
-streamlit run app.py
-```
+## 🎯 The Problem
 
-## 🌐 Deploy to Streamlit Community Cloud
+Project delivery updates are often scattered across emails, chats, calls, and engineering notes.
 
-1. Push this repo to GitHub
-2. Go to share.streamlit.io → New app → select your repo
-3. Main file: `app.py`
-4. In app settings → Secrets, add:
-   `GEMINI_API_KEY = "your_key_here"`
-5. Click Deploy
+This makes it difficult for delivery teams and customers to get a unified view of:
 
-## 📁 File Structure
+- Project progress
+- Milestones and deliverables
+- Risks and blockers
+- Open issues
+- Recent project activity
 
-- `app.py` — Entry point, routing, sidebar
-- `mock_data.py` — All synthetic project/milestone/issue/update data
-- `ai_helper.py` — Gemini API: update parsing, health score, email draft, NL query
-- `pages/overview.py` — Projects list with metrics and NL query
-- `pages/detail.py` — Project detail, toggle, milestones, issues, updates feed
-- `components/` — Reusable UI widgets
-- `utils/state.py` — Session state helpers
+Teams also spend significant time manually converting unstructured updates into structured project status.
 
-## 🔑 Environment Variables
+---
 
-| Variable | Required | Description |
-|---|---|---|
-| `GEMINI_API_KEY` | Yes (for AI features) | Get free at aistudio.google.com |
+## 💡 The Solution
 
-## ✨ Features
+Cadence provides a unified project delivery dashboard with an AI-powered update workflow.
 
-- Projects overview with health metrics
-- Internal vs Customer-facing view toggle  
-- AI update parsing (messy text → structured status)
-- AI project health score (auto-updates on milestone changes)
-- One-click customer email draft
-- Natural language project queries
-- Stale project detection
+```text
+Natural-Language Update
+          ↓
+      AI Processing
+          ↓
+  Delivery Information
+          ↓
+Milestone • Progress • Risk • Status
+          ↓
+   Project State Updated
+          ↓
+     Activity Feed
