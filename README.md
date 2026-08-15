@@ -22,7 +22,7 @@ Built for the **FlytBase AI-Native Customer Teams Hackathon**.
 
 The portfolio dashboard provides a unified view of active delivery projects, project health, milestone completion, blocked work, and AI-generated activity.
 
-![Cadence Portfolio Dashboard](screenshots/dashboard.png)
+![Cadence Portfolio Dashboard](screenshots/home.png)
 
 ---
 
