@@ -1,53 +1,65 @@
-# Project Delivery Dashboard 📦
+# 🚀 Cadence — AI-Powered Project Delivery Dashboard
 
-A unified internal + customer-facing delivery dashboard with AI-powered 
-update parsing. Built for the FlytBase "AI-Native Customer Teams" hackathon.
+> **Turn scattered project updates into structured delivery intelligence.**
 
-## 🚀 Quick Start (Local)
+Cadence is an AI-powered project delivery workspace designed to help delivery teams monitor project health, track milestones, identify risks, manage issues, and transform unstructured project updates into structured delivery information.
 
-```bash
-git clone <your-repo-url>
-cd project-delivery-dashboard
-pip install -r requirements.txt
+Built for the **FlytBase AI-Native Customer Teams Hackathon**.
 
-# Set your Gemini API key (get free key at aistudio.google.com)
-export GEMINI_API_KEY=your_key_here   # Mac/Linux
-set GEMINI_API_KEY=your_key_here      # Windows
+---
 
-streamlit run app.py
-```
+## 🌐 Live Demo
 
-## 🌐 Deploy to Streamlit Community Cloud
+🔗 **Live Application:** https://cadence-project-delivery-dashboard.streamlit.app
 
-1. Push this repo to GitHub
-2. Go to share.streamlit.io → New app → select your repo
-3. Main file: `app.py`
-4. In app settings → Secrets, add:
-   `GEMINI_API_KEY = "your_key_here"`
-5. Click Deploy
+🔗 **GitHub Repository:** https://github.com/adityaa-nikam/cadence-project-delivery-dashboard
 
-## 📁 File Structure
+---
 
-- `app.py` — Entry point, routing, sidebar
-- `mock_data.py` — All synthetic project/milestone/issue/update data
-- `ai_helper.py` — Gemini API: update parsing, health score, email draft, NL query
-- `pages/overview.py` — Projects list with metrics and NL query
-- `pages/detail.py` — Project detail, toggle, milestones, issues, updates feed
-- `components/` — Reusable UI widgets
-- `utils/state.py` — Session state helpers
+## 📸 Product Preview
 
-## 🔑 Environment Variables
+### Portfolio Overview
 
-| Variable | Required | Description |
-|---|---|---|
-| `GEMINI_API_KEY` | Yes (for AI features) | Get free at aistudio.google.com |
+The portfolio dashboard provides a unified view of active delivery projects, project health, milestone completion, blocked work, and AI-generated activity.
 
-## ✨ Features
+![Cadence Portfolio Dashboard](screenshots/dashboard.png)
 
-- Projects overview with health metrics
-- Internal vs Customer-facing view toggle  
-- AI update parsing (messy text → structured status)
-- AI project health score (auto-updates on milestone changes)
-- One-click customer email draft
-- Natural language project queries
-- Stale project detection
+---
+
+### Project Delivery View
+
+Each project has a detailed delivery workspace with AI health assessment, milestone progress, risks, issues, and separate internal/customer perspectives.
+
+![Cadence Project Delivery View](screenshots/project-detail.png)
+
+---
+
+# 🎯 The Problem
+
+Once a customer signs on, delivery work begins across onboarding, implementation milestones, ongoing tasks, and issue resolution.
+
+However, project updates are often scattered across:
+
+- Emails
+- Chat messages
+- Calls and meeting notes
+- Engineering updates
+- Support tickets
+- Manual status reports
+
+This creates a major visibility problem.
+
+Delivery teams have to manually interpret updates and maintain project status, while customers often lack a unified place to understand how their project is progressing.
+
+### The traditional workflow
+
+```text
+Customer / Engineering / Support Updates
+                  ↓
+       Emails • Chat • Calls • Notes
+                  ↓
+        Manual Interpretation
+                  ↓
+        Manual Status Updates
+                  ↓
+       Fragmented Project View
