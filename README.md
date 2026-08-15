@@ -30,7 +30,7 @@ The portfolio dashboard provides a unified view of active delivery projects, pro
 
 Each project has a detailed delivery workspace with AI health assessment, milestone progress, risks, issues, and separate internal/customer perspectives.
 
-![Cadence Project Delivery View](screenshots/project-detail.png)
+![Cadence Project Delivery View](screenshots/home02.png)
 
 ---
 
